@@ -19,6 +19,14 @@ public class Player : MonoBehaviour
     private void Start()
     {
         var playerInput = GetComponent<PlayerInput>();
+        
+        var renderer = turret.gameObject.GetComponent<Renderer>();
+        
+        //check which player this is
+        if(GameManager.instance.playerCount == 1)
+            renderer.material.color = GameManager.instance.player1;
+        else
+            renderer.material.color = GameManager.instance.player2;
     }
 
     void Update()
